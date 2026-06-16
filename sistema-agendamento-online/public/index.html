@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgendaPro Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="badge">Sistema Profissional</span>
+        <h1>AgendaPro Online</h1>
+        <p>Controle seus atendimentos, clientes e confirmações pelo WhatsApp em uma plataforma moderna e segura.</p>
+      </div>
+    </section>
+
+    <section id="auth-screen" class="auth-card">
+      <div class="tabs">
+        <button class="tab active" data-form="login-form">Login</button>
+        <button class="tab" data-form="register-form">Cadastro</button>
+      </div>
+
+      <form id="login-form" class="form active">
+        <h2>Entrar na conta</h2>
+        <label>E-mail</label>
+        <input type="email" id="login-email" placeholder="seuemail@gmail.com" required />
+        <label>Senha</label>
+        <input type="password" id="login-password" placeholder="Sua senha" required />
+        <button type="submit" class="primary-btn">Acessar sistema</button>
+      </form>
+
+      <form id="register-form" class="form">
+        <h2>Criar conta</h2>
+        <label>Nome</label>
+        <input type="text" id="register-name" placeholder="Seu nome" required />
+        <label>E-mail</label>
+        <input type="email" id="register-email" placeholder="seuemail@gmail.com" required />
+        <label>Senha</label>
+        <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" required />
+        <button type="submit" class="primary-btn">Criar conta</button>
+      </form>
+
+      <p id="auth-message" class="message"></p>
+    </section>
+
+    <section id="dashboard" class="dashboard hidden">
+      <header class="dashboard-header">
+        <div>
+          <span class="badge">Painel administrativo</span>
+          <h2>Meus Agendamentos</h2>
+          <p id="welcome"></p>
+        </div>
+        <button id="logout-btn" class="secondary-btn">Sair</button>
+      </header>
+
+      <div class="dashboard-grid">
+        <form id="appointment-form" class="panel">
+          <h3>Novo agendamento</h3>
+
+          <label>Nome do cliente</label>
+          <input type="text" id="client-name" placeholder="Ex: Maria Silva" required />
+
+          <label>Telefone do cliente</label>
+          <input type="tel" id="client-phone" placeholder="Ex: 84999999999" required />
+
+          <label>Serviço</label>
+          <input type="text" id="service" placeholder="Ex: Consulta, Corte, Reunião" required />
+
+          <div class="two-columns">
+            <div>
+              <label>Data</label>
+              <input type="date" id="appointment-date" required />
+            </div>
+            <div>
+              <label>Hora</label>
+              <input type="time" id="appointment-time" required />
+            </div>
+          </div>
+
+          <label>Observações</label>
+          <textarea id="notes" rows="4" placeholder="Informações adicionais"></textarea>
+
+          <button type="submit" class="primary-btn">Salvar agendamento</button>
+          <p id="appointment-message" class="message"></p>
+        </form>
+
+        <div class="panel appointments-panel">
+          <div class="panel-title">
+            <h3>Agenda</h3>
+            <button id="refresh-btn" class="secondary-btn">Atualizar</button>
+          </div>
+          <div id="appointments-list" class="appointments-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
